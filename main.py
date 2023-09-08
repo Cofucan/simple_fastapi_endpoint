@@ -1,3 +1,4 @@
+"""This module defines an endpoint for getting a HNG user's information."""
 from datetime import datetime, timezone
 from fastapi import FastAPI
 
@@ -6,15 +7,10 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello fellow"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
-
-@app.get("/api/{slack_name}/{track}")
+@app.get("/api")
 async def get_user_info(slack_name: str, track: str):
     """
     Retrieve user information.
@@ -26,10 +22,12 @@ async def get_user_info(slack_name: str, track: str):
     Returns:
         dict: A dictionary containing user information.
     """
+    now = datetime.now(timezone.utc)
+
     return {
         "slack_name": slack_name,
-        "current_day": datetime.now().strftime('%A'),
-        "utc_time": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "current_day": now.strftime('%A'),
+        "utc_time": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "track": track,
         "github_file_url": "www",
         "github_repo_url": "www",
