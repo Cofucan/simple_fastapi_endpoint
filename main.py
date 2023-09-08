@@ -29,7 +29,7 @@ async def get_user_info(slack_name: str, track: str):
         "current_day": now.strftime('%A'),
         "utc_time": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "track": track,
-        "github_file_url": "www",
-        "github_repo_url": "www",
+        "github_file_url": "https://github.com/Cofucan/simple_fastapi_endpoint/blob/main/main.py",
+        "github_repo_url": "https://github.com/Cofucan/simple_fastapi_endpoint",
         "status_code": 200,
     }
