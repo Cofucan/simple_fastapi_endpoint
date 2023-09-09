@@ -1,2 +1,4 @@
-fastapi
+fastapi~=0.103.1
 uvicorn
+pytest~=7.4.2
+pytest-asyncio
